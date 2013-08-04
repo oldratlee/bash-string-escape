@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class BseUtilsTest {
     @Test
     public void test_escapeSimpleString() throws Exception {
-        String out = escapeSimpleString("foo'bar\"123");
+        String out = escapePlainString("foo'bar\"123");
         assertEquals("'foo'\\''bar\"123'", out);
     }
 
