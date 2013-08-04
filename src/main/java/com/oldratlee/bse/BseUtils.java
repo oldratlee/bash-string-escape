@@ -92,17 +92,45 @@ public class BseUtils {
     public static String escapeVarString(String origin) {
         StringBuilder sb = new StringBuilder(origin.length());
         sb.append('"');
-        for (char c : origin.toCharArray()) {
+        int level = 0;
+        char[] charArray = origin.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            char c = charArray[i];
             switch (c) {
                 case '"':
                     sb.append("\\\"");
                     break;
+                case '$':
+                    if (i + 1 < charArray.length) {
+                        char next = charArray[i + 1];
+                        if ('(' == next || '{' == next) {
+
+                        }
+                    }
+                    break;
+                case '`':
+
                 default:
                     sb.append(c);
             }
         }
         sb.append('"');
         return sb.toString();
+    }
+
+    int eatVarReplacement(char[] input, int offset) {
+        // FIXME add implementation
+        return offset;
+    }
+
+    int eatInternalReplacement(char[] input, int offset) {
+        // FIXME add implementation
+        for (int i = 0; i < input.length; i++) {
+            char c = input[i];
+
+        }
+        
+        return offset;
     }
 
     /**
