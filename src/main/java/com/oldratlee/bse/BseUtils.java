@@ -10,9 +10,15 @@ import java.util.List;
  */
 public class BseUtils {
     /**
-     * Escape the plain string.<p>
+     * Escape the plain string. The result string can be place in the bash command line,
+     * and input value to command is the exact origin string.<p>
      * use single quote mark to surround the origin string, and escape the meta character
-     * in origin string.
+     * in origin string.<p>
+     * examples:
+     * <ul>
+     * <li><code>abc</code> => <code>'abc'</code>
+     * <li><code>abc"xyz'123</code> => <code>'abc"xyz'\''123'</code>
+     * </ul>
      *
      * @param origin input string
      * @return the result string after escape
@@ -27,7 +33,7 @@ public class BseUtils {
         for (char c : origin.toCharArray()) {
             switch (c) {
                 case '\'':
-                    sb.append("'\\''");
+                    sb.append("'\\''"); // insert string '\'' (4 char) instead of origin '
                     break;
                 default:
                     sb.append(c);
@@ -137,5 +143,8 @@ public class BseUtils {
             ret.add(escapeVarString(o));
         }
         return ret;
+    }
+
+    private BseUtils() {
     }
 }
