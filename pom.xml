@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.oldratlee</groupId>
@@ -65,6 +65,15 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/oldratlee/bash-string-escape/issues</url>
+	</issueManagement>
+	<scm>
+		<url>git@github.com:oldratlee/bash-string-escape.git</url>
+		<connection>scm:git:git@github.com:oldratlee/bash-string-escape.git</connection>
+	</scm>
 
 	<developers>
 		<developer>

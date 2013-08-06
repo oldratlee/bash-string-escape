@@ -7,6 +7,7 @@ import java.util.List;
  * Bash string escape utils.
  *
  * @author Jerry Lee oldratlee(at)gmail(dot)com
+ * @see <a href="https://github.com/oldratlee/bash-string-escape">bse github project</a>
  */
 public class BseUtils {
     /**
@@ -64,7 +65,7 @@ public class BseUtils {
     }
 
     /**
-     * convenient method for {@link #escapePlainString(String)}.
+     * Convenient method for {@link #escapePlainString(String)}.
      * Escape multiply string at one time.
      */
     public static List<String> escapePlainString(List<String> origin) {
@@ -84,7 +85,7 @@ public class BseUtils {
     }
 
     /**
-     * Ecapse String contains var usage, like <code>Hello, $username</code>.
+     * Escape String contains var usage, like <code>Hello, $username</code>.
      *
      * @param origin input string
      * @return the result string after escape
@@ -106,7 +107,7 @@ public class BseUtils {
     }
 
     /**
-     * convenient method for {@link #escapeVarString(String)}.
+     * Convenient method for {@link #escapeVarString(String)}.
      * Escape multiply string at one time.
      */
     public static String[] escapeVarString(String[] origin) {
@@ -126,7 +127,7 @@ public class BseUtils {
     }
 
     /**
-     * convenient method for {@link #escapeVarString(String)}.
+     * Convenient method for {@link #escapeVarString(String)}.
      * Escape multiply string at one time.
      */
     public static List<String> escapeVarString(List<String> origin) {
