@@ -34,7 +34,7 @@ public class BseUtilsTest {
     }
 
     @Test
-    public void test_escapeSimpleString() throws Throwable {
+    public void test_escapePlainString() throws Throwable {
         final String input1 = "abc";
         assertEquals("'abc'", escapePlainString(input1));
 
