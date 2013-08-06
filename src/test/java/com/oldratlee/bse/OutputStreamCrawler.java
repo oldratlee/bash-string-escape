@@ -4,6 +4,7 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.InputStream;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @author Jerry Lee oldratlee(at)gmail(dot)com
@@ -30,10 +31,10 @@ class OutputStreamCrawler {
         crawler.start();
     }
 
-    public String getResult() throws Throwable {
+    public String getResult() throws Exception {
         latch.await();
         if (throwable != null) {
-            throw throwable;
+            throw new ExecutionException(throwable);
         }
         return result;
     }
