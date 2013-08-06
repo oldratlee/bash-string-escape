@@ -49,7 +49,10 @@ public class BseUtilsTest {
         s = "abc\n123";
         assertEquals(s, runEcho(escapePlainString(s)));
 
-        s = "$ \r \n \t abc Java™   ";
+        s = " ! $ \r \n \t abc Java   ";
+        assertEquals(s, runEcho(escapePlainString(s)));
+
+        s = "  Java™  你好，中华人民共和国！ ";
         assertEquals(s, runEcho(escapePlainString(s)));
     }
 
