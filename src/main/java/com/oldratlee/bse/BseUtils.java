@@ -23,6 +23,7 @@ public class BseUtils {
      *
      * @param origin input string
      * @return the result string after escape
+     * @throws NullPointerException parameter is <code>null</code>
      */
     public static String escapePlainString(String origin) {
         if (origin == null) {
@@ -47,6 +48,10 @@ public class BseUtils {
     /**
      * Convenient method for {@link #escapePlainString(String)}.
      * Escape multiply string at one time.
+     *
+     * @param origin input array for escape
+     * @return the escaped string array
+     * @throws NullPointerException array parameter is <code>null</code>, or the element in array is <code>null</code>
      */
     public static String[] escapePlainString(String[] origin) {
         if (origin == null) {
@@ -67,6 +72,10 @@ public class BseUtils {
     /**
      * Convenient method for {@link #escapePlainString(String)}.
      * Escape multiply string at one time.
+     *
+     * @param origin input list for escape
+     * @return the escaped string list
+     * @throws NullPointerException list parameter is <code>null</code>, or the element in list is <code>null</code>
      */
     public static List<String> escapePlainString(List<String> origin) {
         if (origin == null) {
@@ -85,10 +94,20 @@ public class BseUtils {
     }
 
     /**
-     * Escape String contains var usage, like <code>Hello, $username</code>.
+     * Escape String contains var usage, like <code>Hello, $USER</code>.
+     * use double quote mark to surround the origin string, and escape the meta character
+     * in origin string.<p>
+     * examples:
+     * <ul>
+     * <li><code>abc</code> => <code>"abc"</code>
+     * <li><code>abc"xyz'123</code> => <code>"abc\"xyz'123"</code>
+     * <li><code>Hello, $USER</code> => <code>"Hello, $USER"</code><br/>
+     * under user root, command <code>echo "Hello, $USER"</code> will output <code>Hello, root</code>
+     * </ul>
      *
      * @param origin input string
      * @return the result string after escape
+     * @throws NullPointerException parameter is <code>null</code>
      */
     public static String escapeVarString(String origin) {
         StringBuilder sb = new StringBuilder(origin.length());
@@ -109,6 +128,10 @@ public class BseUtils {
     /**
      * Convenient method for {@link #escapeVarString(String)}.
      * Escape multiply string at one time.
+     *
+     * @param origin input array for escape
+     * @return the escaped string array
+     * @throws NullPointerException array parameter is <code>null</code>, or the element in array is <code>null</code>
      */
     public static String[] escapeVarString(String[] origin) {
         if (origin == null) {
@@ -129,6 +152,10 @@ public class BseUtils {
     /**
      * Convenient method for {@link #escapeVarString(String)}.
      * Escape multiply string at one time.
+     *
+     * @param origin input list for escape
+     * @return the escaped string list
+     * @throws NullPointerException list parameter is <code>null</code>, or the element in list is <code>null</code>
      */
     public static List<String> escapeVarString(List<String> origin) {
         if (origin == null) {
